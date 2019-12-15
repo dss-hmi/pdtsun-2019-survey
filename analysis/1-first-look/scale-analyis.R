@@ -263,20 +263,7 @@ for(item_i in varname_e_scale){
 
 ds1 <- ds1 %>%
   dplyr::mutate(
-    score_e = rowSums(.[varname_e_scale]),
-    score_n = rowSums(.[varname_n_scale])
-  )
-# ds1 %>% glimpse()
-# distribution of scale scores
-ds1 %>% histogram_continuous("score_n",main_title = "Distribution of total Scores",
-                             sub_title = "New Scale", x_title = "Total score (New Scale)")
-ds1 %>% histogram_continuous("score_e",main_title = "Distribution of total Scores",
-                             sub_title = "Existing Scale",x_title = "Total score (Existing Scale)")
-
-
-ds1 <- ds1 %>%
-  dplyr::mutate(
-     Q4_4   = Q4_4 * -1
+    Q4_4   = Q4_4 * -1
     ,Q4_7   = Q4_7 * -1
     ,Q4_11  = Q4_11 * -1
     ,Q4_9   = Q4_9 * -1
@@ -291,6 +278,23 @@ ds1 <- ds1 %>%
     ,Q29    = Q29 * -1
     ,Q30    = Q30 * -1
   )
+
+
+ds1 <- ds1 %>%
+  dplyr::mutate(
+    score_e = rowSums(.[varname_e_scale]),
+    # score_chu = rowSums(.[varname_chu_scale]),
+    # score_warwick = rowSums(.[varname_warwick_scale]),
+    score_n = rowSums(.[varname_n_scale])
+  )
+# ds1 %>% glimpse()
+# distribution of scale scores
+ds1 %>% histogram_continuous("score_n",main_title = "Distribution of total Scores",
+                             sub_title = "New Scale", x_title = "Total score (New Scale)")
+ds1 %>% histogram_continuous("score_e",main_title = "Distribution of total Scores",
+                             sub_title = "Existing Scale",x_title = "Total score (Existing Scale)")
+
+
 
 
 
