@@ -264,13 +264,18 @@ ds_meta <- readr::read_csv("./data-unshared/raw/meta.csv")
 # Q4_4
 # Q4_7
 # Q4_11
+# Q4_9
 # Q4_15
 #
 # Q20
 # Q21
 # Q22
+# Q23
 # Q24
 # Q25
+# Q28
+# Q29
+# Q30
 
 
 
