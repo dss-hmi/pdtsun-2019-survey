@@ -20,6 +20,17 @@ This report narrates the process of factor analizing the proposed scale
 
 <!-- Load 'sourced' R files.  Suppress the output when loading packages. --> 
 
+```
+Warning: package 'sem' was built under R version 3.6.3
+```
+
+```
+Warning: package 'corrplot' was built under R version 3.6.3
+```
+
+```
+Warning: package 'corrgram' was built under R version 3.6.3
+```
 
 <!-- Load the sources.  Suppress the output when loading sources. --> 
 
@@ -38,6 +49,14 @@ This report narrates the process of factor analizing the proposed scale
 
 <!-- Tweak the datasets.   -->
 
+```
+Warning: select_() is deprecated. 
+Please use select() instead
+
+The 'programming' vignette or the tidyeval book can help you
+to program with select() : https://tidyeval.tidyverse.org
+This warning is displayed once per session.
+```
 
 
 # Introduction
@@ -126,20 +145,20 @@ Sample Size adjusted BIC achieves a minimum of  -87.25  with  8  factors
 
 Statistics by number of factors 
    vss1 vss2   map dof   chisq     prob sqresid  fit RMSEA    BIC SABIC complex  eChisq    SRMR eCRMS   eBIC
-1  0.86 0.00 0.021 170 1.1e+03 5.2e-135    10.7 0.86 0.114   65.8 605.3     1.0 1.1e+03 8.3e-02 0.088   88.2
-2  0.67 0.90 0.020 151 6.6e+02  1.4e-65     8.0 0.90 0.091 -249.6 229.6     1.4 5.8e+02 6.0e-02 0.067 -337.9
-3  0.54 0.85 0.017 133 3.9e+02  2.1e-26     5.9 0.92 0.068 -420.1   2.0     1.6 2.0e+02 3.5e-02 0.042 -603.7
-4  0.54 0.84 0.021 116 2.9e+02  1.1e-16     5.3 0.93 0.060 -414.1 -46.0     1.7 1.4e+02 3.0e-02 0.038 -558.1
-5  0.54 0.79 0.027 100 2.3e+02  7.0e-12     4.7 0.94 0.056 -378.6 -61.2     1.9 1.0e+02 2.5e-02 0.034 -505.1
-6  0.52 0.73 0.033  85 1.7e+02  3.4e-07     4.3 0.95 0.049 -348.6 -78.9     2.1 6.6e+01 2.0e-02 0.030 -449.1
-7  0.48 0.75 0.041  71 1.2e+02  8.4e-05     3.8 0.95 0.044 -305.2 -79.9     2.1 4.6e+01 1.7e-02 0.027 -384.5
-8  0.46 0.71 0.049  58 8.0e+01  2.9e-02     3.3 0.96 0.031 -271.3 -87.3     2.3 2.6e+01 1.3e-02 0.023 -325.7
-9  0.40 0.75 0.059  46 5.0e+01  3.1e-01     2.9 0.96 0.017 -228.5 -82.5     2.1 1.7e+01 1.0e-02 0.021 -261.8
+1  0.86 0.00 0.021 170 1.1e+03 5.2e-135    10.7 0.86 0.113   65.8 605.3     1.0 1.1e+03 8.3e-02 0.088   88.2
+2  0.67 0.90 0.020 151 6.6e+02  1.4e-65     8.0 0.90 0.089 -249.6 229.6     1.4 5.8e+02 6.0e-02 0.067 -337.9
+3  0.54 0.85 0.017 133 3.9e+02  2.1e-26     5.9 0.92 0.067 -420.1   2.0     1.6 2.0e+02 3.5e-02 0.042 -603.7
+4  0.54 0.84 0.021 116 2.9e+02  1.1e-16     5.3 0.93 0.059 -414.1 -46.0     1.7 1.4e+02 3.0e-02 0.038 -558.1
+5  0.54 0.79 0.027 100 2.3e+02  7.0e-12     4.7 0.94 0.055 -378.6 -61.2     1.9 1.0e+02 2.5e-02 0.034 -505.1
+6  0.52 0.73 0.033  85 1.7e+02  3.4e-07     4.3 0.95 0.047 -348.6 -78.9     2.1 6.6e+01 2.0e-02 0.030 -449.1
+7  0.48 0.75 0.041  71 1.2e+02  8.4e-05     3.8 0.95 0.042 -305.2 -79.9     2.1 4.6e+01 1.7e-02 0.027 -384.5
+8  0.46 0.71 0.049  58 8.0e+01  2.9e-02     3.3 0.96 0.030 -271.3 -87.3     2.3 2.6e+01 1.3e-02 0.023 -325.7
+9  0.40 0.75 0.059  46 5.0e+01  3.1e-01     2.9 0.96 0.014 -228.5 -82.5     2.1 1.7e+01 1.0e-02 0.021 -261.8
 10 0.41 0.75 0.066  35 3.3e+01  5.7e-01     2.5 0.97 0.000 -179.1 -68.1     2.0 8.9e+00 7.4e-03 0.017 -203.1
 11 0.42 0.64 0.081  25 2.3e+01  6.0e-01     2.8 0.96 0.000 -128.7 -49.4     2.5 6.0e+00 6.1e-03 0.017 -145.5
 12 0.46 0.65 0.094  16 1.3e+01  6.8e-01     2.1 0.97 0.000  -84.0 -33.2     2.2 2.8e+00 4.2e-03 0.014  -94.1
 13 0.37 0.62 0.116   8 7.1e+00  5.3e-01     2.3 0.97 0.000  -41.4 -16.0     2.5 1.5e+00 3.0e-03 0.015  -47.0
-14 0.23 0.42 0.136   1 1.2e+00  2.8e-01     2.3 0.97 0.022   -4.9  -1.7     3.0 2.1e-01 1.1e-03 0.016   -5.8
+14 0.23 0.42 0.136   1 1.2e+00  2.8e-01     2.3 0.97 0.019   -4.9  -1.7     3.0 2.1e-01 1.1e-03 0.016   -5.8
 15 0.23 0.38 0.177  -5 2.0e-04       NA     2.1 0.97    NA     NA    NA     3.3 3.2e-05 1.4e-05    NA     NA
 16 0.34 0.56 0.245 -10 1.1e-05       NA     2.0 0.97    NA     NA    NA     2.6 1.7e-06 3.2e-06    NA     NA
 17 0.33 0.55 0.369 -14 4.3e-08       NA     2.1 0.97    NA     NA    NA     2.7 7.7e-09 2.2e-07    NA     NA
@@ -160,21 +179,21 @@ Parallel analysis suggests that the number of factors =  4  and the number of co
 
 ```
    observed_eigens simulated_eigens
-1      7.655685295       0.51125350
-2      0.994542517       0.34384022
-3      0.844239726       0.29480765
-4      0.269632660       0.24847768
-5      0.199970175       0.20915088
-6      0.129517289       0.17520459
-7      0.039944804       0.13702338
-8     -0.006467331       0.09625650
-9     -0.026975661       0.05511684
-10    -0.052193362       0.01775094
-11    -0.060142500      -0.01375176
-12    -0.069033568      -0.04300526
-13    -0.119911700      -0.07526369
-14    -0.176364116      -0.10264354
-15    -0.222915845      -0.13559613
+1      7.655685295       0.61044984
+2      0.994542517       0.34685612
+3      0.844239726       0.29598141
+4      0.269632660       0.23974758
+5      0.199970175       0.20371859
+6      0.129517289       0.16847548
+7      0.039944804       0.12398564
+8     -0.006467331       0.09037350
+9     -0.026975661       0.06092811
+10    -0.052193362       0.01959554
+11    -0.060142500      -0.00938798
+12    -0.069033568      -0.03984756
+13    -0.119911700      -0.06892370
+14    -0.176364116      -0.09745562
+15    -0.222915845      -0.13561839
 ```
 
 ## Fit
@@ -226,7 +245,14 @@ Using  [Advanced Factor Function](http://statpower.net/Content/312/R%20Stuff/Adv
 This will take a moment..........exiting
 ```
 
-<img src="figures-phase/estimate-0-1.png" width="700px" /><img src="figures-phase/estimate-0-2.png" width="700px" />
+<img src="figures-phase/estimate-0-1.png" width="700px" />
+
+```
+
+Loadings above threashold (.3) are masked to see the simpler structure
+```
+
+<img src="figures-phase/estimate-0-2.png" width="700px" />
 
 ## Confirm
 Applying "Exploratory-Confirmatory" procedure described by [Joreskog(1978)](https://scholar.google.ca/scholar?q=Structural+analysis+of+covariance+and+correlation+matrices&btnG=&hl=en&as_sdt=0%2C33), we find the largest loading for each column of the factor pattern, then constrain all the other loadings in that row to be zero, and fit the resulting model as a confirmatory factor model. Given that we chose the orthogonal bifactor solution, we permit the the cross-loadings between general factor and subfactors. 
@@ -324,21 +350,21 @@ Guidelines for preference:
 
 3. Items `Q4_5`(_Today I feel rested_) and `Q6_1`(_Today I woke up feeling well-rested_) had highest loadings on the "Self-Care" factors, consistently across rotations. Deciding between them, we opted for `Q4_5` because it had slightly higher item-total correlations with both the new and existing scales. These two items had a high correlation (R = .75). 
 
-3. Two other items had the next highest loadings on the "Self-Care" factor: `Q4_13`	(_Today I feel energetic_) and `Q6_3`	(_Today I took good care of myself_). We felt that `Q4_13` was similar to `Q4_5`, whicle `Q6_3` provided a different facet of well-being. Therefore, choosing between the two we settled on the latter.
+4. Two other items had the next highest loadings on the "Self-Care" factor: `Q4_13`	(_Today I feel energetic_) and `Q6_3`	(_Today I took good care of myself_). We felt that `Q4_13` was similar to `Q4_5`, whicle `Q6_3` provided a different facet of well-being. Therefore, choosing between the two we settled on the latter.
 
-4. We inclued `Q4_6`	(_Today I feel happy_) because it had the highest loading on the general factor and highest item-total correlation on all scales.  
+5. We inclued `Q4_6`	(_Today I feel happy_) because it had the highest loading on the general factor and highest item-total correlation on all scales.  
 
-5. With 4 items included into the new questionnaire, we had 2-3 items to assist `Q4_6` in capturing the genral factor. The following group stood out:
+6. With 4 items included into the new questionnaire, we had 2-3 items to assist `Q4_6` in capturing the genral factor. The following group stood out:
  
-- `Q4_8`   (_Today I feel confident_)
-- `Q4_16`  (_Today I feel in charge of my life_)
-- `Q4_10`  (_Today I feel that my life has a purpose_)
-- `Q4_2`   (_Today I feel optimistic about the future_)
+  - `Q4_8`   (_Today I feel confident_)
+  - `Q4_16`  (_Today I feel in charge of my life_)
+  - `Q4_10`  (_Today I feel that my life has a purpose_)
+  - `Q4_2`   (_Today I feel optimistic about the future_)
 
 All of these appear to have similar loadings, with minor variations. We chose `Q4_10` because this items appears to cover the spiritual/self-actualization domain. We also chose `Q4_8` it had consistently higher loading on the general factor that other two (`Q4_16` and `Q4_2`) while being similar to them in term of the content. 
 
 
-5. To represent social facet, we chose `Q4_14` (_Today I feel supported_) over `Q4_3` (_Today I feel loved_), because the former had higher loading, and higher item-total correlations. 
+7. To represent social facet, we chose `Q4_14` (_Today I feel supported_) over `Q4_3` (_Today I feel loved_), because the former had higher loading, and higher item-total correlations. 
 
 # Chosen items
 
@@ -360,9 +386,9 @@ sessionInfo()
 ```
 
 ```
-R version 3.5.2 (2018-12-20)
+R version 3.6.2 (2019-12-12)
 Platform: x86_64-w64-mingw32/x64 (64-bit)
-Running under: Windows >= 8 x64 (build 9200)
+Running under: Windows 10 x64 (build 18363)
 
 Matrix products: default
 
@@ -375,22 +401,21 @@ attached base packages:
 
 other attached packages:
  [1] corrgram_1.13         corrplot_0.84         GPArotation_2014.11-1 sem_3.1-9             plotrix_3.7-7        
- [6] psych_1.8.12          dplyr_0.8.3           ggplot2_3.1.1         magrittr_1.5          knitr_1.26           
+ [6] psych_1.9.12.31       dplyr_0.8.4           ggplot2_3.2.1         magrittr_1.5          knitr_1.28           
 
 loaded via a namespace (and not attached):
- [1] nlme_3.1-142       bitops_1.0-6       RColorBrewer_1.1-2 mi_1.0             tools_3.5.2        backports_1.1.5   
- [7] utf8_1.1.4         R6_2.4.1           KernSmooth_2.23-16 lazyeval_0.2.2     colorspace_1.4-1   withr_2.1.2       
-[13] tidyselect_0.2.5   gridExtra_2.3      mnormt_1.5-5       compiler_3.5.2     extrafontdb_1.0    cli_1.1.0         
-[19] TSP_1.1-7          labeling_0.3       caTools_1.17.1.2   scales_1.0.0       readr_1.3.1        stringr_1.4.0     
-[25] digest_0.6.22      foreign_0.8-72     minqa_1.2.4        rmarkdown_1.17     dichromat_2.0-0    pkgconfig_2.0.3   
-[31] htmltools_0.4.0    extrafont_0.17     lme4_1.1-21        labelled_2.2.1     rlang_0.4.1        testit_0.11       
-[37] gtools_3.8.1       dendextend_1.13.2  Matrix_1.2-17      Rcpp_1.0.3         munsell_0.5.0      fansi_0.4.0       
-[43] abind_1.4-5        viridis_0.5.1      lifecycle_0.1.0    stringi_1.4.3      yaml_2.2.0         MASS_7.3-51.4     
-[49] gplots_3.0.1.1     plyr_1.8.4         matrixcalc_1.0-3   grid_3.5.2         parallel_3.5.2     gdata_2.18.0      
-[55] forcats_0.4.0      crayon_1.3.4       lattice_0.20-38    haven_2.2.0        splines_3.5.2      hms_0.5.2         
-[61] zeallot_0.1.0      pillar_1.4.2       boot_1.3-23        reshape2_1.4.3     codetools_0.2-16   stats4_3.5.2      
-[67] glue_1.3.1         gclus_1.3.2        evaluate_0.14      vctrs_0.2.0        nloptr_1.2.1       foreach_1.4.7     
-[73] Rttf2pt1_1.3.7     gtable_0.3.0       purrr_0.3.3        tidyr_1.0.0        assertthat_0.2.1   xfun_0.11         
-[79] coda_0.19-3        viridisLite_0.3.0  seriation_1.2-8    tibble_2.1.3       arm_1.10-1         iterators_1.0.12  
-[85] registry_0.5-1     cluster_2.1.0     
+ [1] nlme_3.1-142       bitops_1.0-6       RColorBrewer_1.1-2 mi_1.0             tools_3.6.2        utf8_1.1.4        
+ [7] R6_2.4.1           KernSmooth_2.23-16 lazyeval_0.2.2     colorspace_1.4-1   withr_2.1.2        tidyselect_1.0.0  
+[13] gridExtra_2.3      mnormt_1.5-6       compiler_3.6.2     extrafontdb_1.0    cli_2.0.1          TSP_1.1-9         
+[19] labeling_0.3       caTools_1.18.0     scales_1.1.0       readr_1.3.1        stringr_1.4.0      digest_0.6.24     
+[25] minqa_1.2.4        rmarkdown_2.1      dichromat_2.0-0    pkgconfig_2.0.3    htmltools_0.4.0    extrafont_0.17    
+[31] lme4_1.1-21        labelled_2.2.2     rlang_0.4.4        farver_2.0.3       testit_0.11        gtools_3.8.2      
+[37] dendextend_1.13.4  Matrix_1.2-18      Rcpp_1.0.3         munsell_0.5.0      fansi_0.4.1        abind_1.4-5       
+[43] viridis_0.5.1      lifecycle_0.1.0    stringi_1.4.5      yaml_2.2.1         MASS_7.3-51.4      gplots_3.0.3      
+[49] plyr_1.8.6         matrixcalc_1.0-3   grid_3.6.2         parallel_3.6.2     gdata_2.18.0       forcats_0.4.0     
+[55] crayon_1.3.4       lattice_0.20-38    haven_2.2.0        splines_3.6.2      hms_0.5.3          pillar_1.4.3      
+[61] boot_1.3-23        reshape2_1.4.3     codetools_0.2-16   stats4_3.6.2       glue_1.3.1         gclus_1.3.2       
+[67] evaluate_0.14      vctrs_0.2.2        nloptr_1.2.2       foreach_1.5.0      Rttf2pt1_1.3.8     gtable_0.3.0      
+[73] purrr_0.3.3        tidyr_1.0.2        assertthat_0.2.1   xfun_0.12          coda_0.19-3        viridisLite_0.3.0 
+[79] seriation_1.2-8    tibble_2.1.3       arm_1.10-1         iterators_1.0.12   registry_0.5-1     cluster_2.1.0     
 ```
