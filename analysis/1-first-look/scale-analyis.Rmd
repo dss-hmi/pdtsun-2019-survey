@@ -5,6 +5,7 @@ output:
     keep_md: no
     toc: yes
     toc_float: true
+    code_folding: hide
   word_document:
     keep_md: no
     toc: no
@@ -40,7 +41,7 @@ opts_chunk$set(
   # dev = "pdf"#,
   # dev.args=list(pdf = list(colormodel = 'cmyk'))
 )
-echoChunks <- FALSE
+echoChunks <- TRUE
 options(width=120) #So the output is 50% wider than the default.
 # connect to the file with the underlying R script  
 read_chunk("./analysis/1-first-look/scale-analyis.R")
@@ -76,17 +77,21 @@ read_chunk("./analysis/1-first-look/scale-analyis.R")
 ```{r tweak-data, echo=echoChunks, results='hide', message=FALSE, eval=T, warning=FALSE}
 ```
 
-```{r item-distributions, echo=echoChunks, fig.width=10, message=FALSE, warning=FALSE, results='asis'}
+```{r item-distributions, echo=echoChunks, fig.width=10, message=FALSE, warning=FALSE, results='asis', cache=TRUE}
 ```
 
 # Total scores
-```{r total-scores, echo=echoChunks, fig.width=10, message=FALSE, warning=FALSE, results='asis', out.width = "960px"}
+```{r total-scores, echo=echoChunks, fig.width=10, message=FALSE, warning=FALSE, results='asis', out.width = "960px", cache=TRUE}
 ```
 
 # Scale Analysis: New
-```{r new-scale, echo=echoChunks, fig.height=18, fig.width=18, message=FALSE, results='asis', out.width = "1200px"}
+```{r new-scale, echo=echoChunks, fig.height=18, fig.width=18, message=FALSE, results='asis', out.width = "1200px", cache=TRUE}
 ```
 
 # Scale Analysis: Existing
-```{r old-scale, echo=echoChunks, fig.height=18, fig.width=18, message=FALSE, results='asis', out.width = "1200px"}
+```{r old-scale, echo=echoChunks, fig.height=18, fig.width=18, message=FALSE, results='asis', out.width = "1200px", cache=TRUE}
+```
+
+# Item labels 
+```{r item-labels, echo=echoChunks, fig.height=18, fig.width=18, message=FALSE, results='asis', out.width = "1200px", cache=TRUE}
 ```

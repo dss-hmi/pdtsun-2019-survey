@@ -324,13 +324,24 @@ ds2 <- ds1[complete.cases(ds1),]
 cormat <- make_corr_matrix(ds1, dto$metaData, varname_n_scale)
 make_corr_plot(cormat, upper="pie")
 
-ds_labels %>% select(item_name, item_description)
-cormat[,21]
+# ds_labels %>% select(item_name, item_description) %>% neat()
+# cormat[,21]
 
 # ---- old-scale ----------
 cormat <- make_corr_matrix(ds1, dto$metaData, varname_e_scale)
 make_corr_plot(cormat, upper="pie")
 
+# ds_labels %>% select(item_name, item_description) %>% neat()
+
+# ---- item-labels ------------
+
+ds_labels %>%
+  dplyr::filter(section == "new") %>%
+  dplyr::select(item_name, item_label, item_description, reverse) %>% neat()
+
+ds_labels %>%
+  dplyr::filter(section == "old") %>%
+  dplyr::select(item_name, item_label, item_description, reverse) %>% neat()
 
 
 # ----- publisher --------------------
