@@ -338,6 +338,7 @@ fit_efa_0 <- MLFA(
 f_pattern <- fit_efa_0[['Bifactor']]$F # fit_efa_0$
 f_pattern %>% plot_factor_pattern(factor_width = 3)
 # Loadings above threashold (.3) are masked to see the simpler structure
+cat("\nLoadings above threashold (.3) are masked to see the simpler structure\n")
 f_pattern[f_pattern<.30] <- NA
 f_pattern %>% plot_factor_pattern(factor_width = 3)
 
@@ -356,7 +357,7 @@ fit_0 <- sem::sem(model_0,R0,sample_size)
 # the pattern of the solution
 m <- GetPattern(fit_0)$F
 m[m==0] <- NA
-m %>% plot_factor_pattern(factor_width=6)
+m %>% plot_factor_pattern(factor_width=3)
 # Summary of the fitted model
 sem_model_summary(fit_0)
 #Relative contribudion of items
