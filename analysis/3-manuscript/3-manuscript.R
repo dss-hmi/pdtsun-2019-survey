@@ -348,6 +348,16 @@ dt1 <- dplyr::left_join(dt1,com)
 dt1 <- dt1 %>% select(item_name, item_label, item_description,
                       communality, new, chu, warwick, old)
 
+# get means and standard deviation
+dt2 <- ds1 %>% select( dt1 %>% dplyr::pull(item_name))
+dt2 <- dt2 %>% psych::describe()
+dt2$item_name <- rownames(dt2)
+dt2 <- tibble::as_tibble(dt2) %>% select(item_name, mean, sd)
+dt2 <- dplyr::left_join(dt2, dt1) %>%
+  select(item_name, item_label, item_description, mean, sd, dplyr::everything())
+
+dt2 %>% readr::write_csv("./data-unshared/derived/descriptives.csv")
+
 # ---- spherisity-tests --------------
 psych::cortest.bartlett(R0,n = sample_size)
 psych::KMO(R0)
@@ -383,7 +393,7 @@ ls_solution <- solve_factors(R0,min=1,max=6,sample_size = n_obs)
 ds_index <- get_indices(ls_solution)
 ds_index %>% print()
 # ---- diagnose-0e -------------------------
-FA.Stats(Correlation.Matrix = R0,n.obs = n_obs,n.factors = 1:6,RMSEA.cutoff = .08)
+FA.Stats(Correlation.Matrix = R0,n.obs = n_obs,n.factors = 1:6,RMSEA.cutoff = c(.08,.05 ))
 
 FA.Stats(Correlation.Matrix = R0,n.obs = n_obs,n.factors = 1:6,RMSEA.cutoff = .05)
 # ---- estimate-0 ---------------------------------
@@ -400,6 +410,31 @@ f_pattern %>% plot_factor_pattern(factor_width = 3)
 cat("\nLoadings above threashold (.3) are masked to see the simpler structure\n")
 f_pattern[f_pattern<.30] <- NA
 f_pattern %>% plot_factor_pattern(factor_width = 3)
+
+# add to the table of descriptives
+# f_pattern[is.na(f_pattern)] <- " "
+d_f_pattern <- f_pattern %>% as.data.frame()
+names(d_f_pattern) <- c("General","Selfcare","Distress")
+d_f_pattern$item_name <- rownames(d_f_pattern)
+d_f_pattern <- d_f_pattern %>% mutate(
+  item_name = gsub("(Q\\d+_\\d+)_(.+)", "\\1", item_name)
+)
+
+dt3 <- dplyr::left_join(dt2,d_f_pattern)
+
+
+dt <- dto$metaData %>% filter(section == "new") %>%
+  select(item_name, adapted_from, selected, reverse)
+
+dt4 <- dt3 %>% dplyr::left_join( dt) %>%
+  select(item_name, item_label, item_description, adapted_from, selected, reverse,
+         dplyr::everything()) %>%
+  dplyr::mutate(
+    selected = ifelse(is.na(selected),".", selected)
+    ,reverse = ifelse(is.na(reverse), ".", "Yes")
+  )
+dt4 %>% readr::write_csv("./data-unshared/derived/descriptives.csv")
+
 
 # ----- confirm-0 ------------------------
 # These values are translated into CFA model and used as starting values
@@ -421,6 +456,10 @@ m %>% plot_factor_pattern(factor_width=3)
 sem_model_summary(fit_0)
 #Relative contribudion of items
 sort(summary(fit_0)$Rsq) %>% dot_plot()
+
+# ----- factor-pattern ----------------
+
+
 
 
 # ---- write-up-0 -----------------------
