@@ -1,7 +1,5 @@
 default:
-    # To be processed by Ellis lanes
-    path_subject_1_raw:       "data-public/raw/subject-1.csv"
-    path_mlm_1_raw:           "data-public/raw/mlm-1.csv"
-    # Analysis-ready datasets (produced by scribes & consumed by analyses).
-    path_mlm_1_derived:       "data-public/derived/mlm-1.rds"
-    path_log_flow:            !expr strftime(Sys.time(), "data-unshared/log/%Y/%Y-%m/flow-%Y-%m-%d--%H-%M-%S.log")
+    varname_n_scale: !expr c("Q4_1","Q4_2","Q4_3","Q4_4","Q4_5","Q4_6","Q4_7","Q4_8","Q4_9","Q4_10","Q4_11","Q4_12","Q4_13","Q4_14","Q4_15","Q4_16","Q6_1","Q6_2","Q6_3","Q6_4")
+    varname_warwick_scale: !expr c("Q17","Q18","Q19","Q26","Q27","Q31","Q33","Q35","Q36","Q37","Q38","Q39")
+    varname_chu_scale: !expr c("Q20","Q21","Q22","Q23","Q24","Q25","Q28","Q29","Q30")
+    varname_e_scale: !expr c("Q17","Q18","Q19","Q26","Q27","Q31","Q33","Q35","Q36","Q37","Q38","Q39","Q20","Q21","Q22","Q23","Q24","Q25","Q28","Q29","Q30")
