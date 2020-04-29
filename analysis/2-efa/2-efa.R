@@ -364,6 +364,11 @@ sem_model_summary(fit_0)
 sort(summary(fit_0)$Rsq) %>% dot_plot()
 
 
+# ---- write-up-0 -----------------------
+d <- ds1 %>% select(varname_n_scale)
+alpha(d)
+solution <- ls_solution
+
 # ---- print-solution --------------------
 display_solution <- function(R,k, sample_size,rotation_,mainTitle=NULL){
   A <- stats::factanal(factors = k, covmat=R, rotation="none", control=list(rotate=list(normalize=TRUE)))
