@@ -16,6 +16,12 @@ requireNamespace("dplyr")   # Avoid attaching dplyr, b/c its function names conf
 requireNamespace("testit")  # For asserting conditions meet expected patterns.
 requireNamespace("corrplot")  # For asserting conditions meet expected patterns.
 # requireNamespace("car")     # For it's `recode()` function.
+config <- config::get()
+
+varname_n_scale       <- config$varname_n_scale
+varname_chu_scale     <- config$varname_chu_scale
+varname_warwick_scale <- config$varname_warwick_scale
+varname_e_scale       <- config$varname_e_scale
 
 # ---- load-sources ------------------------------------------------------------
 # Call `base::source()` on any repo file that defines functions needed below.  Ideally, no real operations are performed.
@@ -30,27 +36,6 @@ describe_item <- function(d, varname){
 
   (variable_label <- labelled::var_label(d[,varname])[[1]])
   d %>% histogram_discrete(varname)+labs(title = paste0(varname,": ",variable_label))
-
-
-  # d1 <- d %>%
-  #   dplyr::rename(temp = varname ) %>%
-  #   dplyr::mutate(
-  #     temp = as.numeric(factor(temp)),
-  #     temp = ifelse(temp %in% c(1:5), temp, NA)
-  #   ) %>%
-  #   plyr::rename(c("temp" = varname))
-  #
-  # d1 %>% group_by(temp) %>% summarize(n = n())
-  #
-  # psych::summary.psych(d)
-  # d1 %>% histogram_continuous(varname)
-
-
-  # cat("\n")
-  # cat("\nMean: ",round(mean( as.numeric( factor(d[,varname]) ),na.rm = T),2),"\n")
-  # cat("\nSD: ", round(sd(as.numeric(d[,varname]), na.rm = T),2),"\n")
-  # cat("\nMissing: ",sum(is.na(d[,varname])),"\n")
-
 }
 
 # ---- load-data ---------------------------------------------------------------
@@ -64,62 +49,55 @@ meta <- dto[["metaData"]]
 # 3rd element - dto[["analytic"]] - small, groomed data to be used for analysis
 ds <- dto[["microData"]]
 ds %>% names()
+
 # ---- inspect-data -------------------------------------------------------------
 
 # ---- print-meta-1 ---------------------------
-varname_n_scale <- c(
-   "Q4_1"
-  ,"Q4_2"
-  ,"Q4_3"
-  ,"Q4_4"
-  ,"Q4_5"
-  ,"Q4_6"
-  ,"Q4_7"
-  ,"Q4_8"
-  ,"Q4_9"
-  ,"Q4_10"
-  ,"Q4_11"
-  ,"Q4_12"
-  ,"Q4_13"
-  ,"Q4_14"
-  ,"Q4_15"
-  ,"Q4_16"
-  ,"Q6_1"
-  ,"Q6_2"
-  ,"Q6_3"
-  ,"Q6_4"
-)
-
-varname_e_scale <- c(
-"Q17"
-,"Q18"
-,"Q19"
-,"Q20"
-,"Q21"
-,"Q22"
-,"Q23"
-,"Q24"
-,"Q25"
-,"Q26"
-,"Q27"
-,"Q28"
-,"Q29"
-,"Q30"
-,"Q31"
-,"Q33"
-# ,"Q34"
-,"Q35"
-,"Q36"
-,"Q37"
-,"Q38"
-,"Q39"
-)
-
 ds_e <- dto$microData %>% dplyr::select( c("id",varname_e_scale)) #%>% tibble::as_tibble()
 ds_n <- dto$microData %>% dplyr::select( c("id",varname_n_scale))
 
 
 # ---- tweak-data --------------------------------------------------------------
+# ds <- dto$microData %>% dplyr::select( c("id",c(varname_n_scale,varname_e_scale))) #%>% tibble::as_tibble()
+# varname_n_scale <- tolower(varname_n_scale)
+# names(ds) <- tolower(names(ds))
+# glimpse(ds, 50)
+convert_back_to_integers <- function(x){
+  x = as.numeric(x)
+}
+keep_only_scale_numbers <- function(x){
+  x = ifelse(x %in% c(1:5), x, NA)
+}
+convert_to_symmetric_scale <- function(x){
+  x = x -3
+}
+ds1 <- c(
+  ds %>% dplyr::select(id),
+  ds %>% dplyr::select(c(varname_n_scale,varname_e_scale)) %>%
+    dplyr::mutate_all(convert_back_to_integers) %>%
+    dplyr::mutate_all(keep_only_scale_numbers) %>%
+    dplyr::mutate_all(convert_to_symmetric_scale)
+) %>%
+  tibble::as_tibble()
+# ds1 %>% glimpse(50)
+
+# for(i in setdiff(names(ds),c("id","race_ethnicity" )) ){
+#   # if( !is.null(labelled::var_label(ds[[i]])) ){
+#     i_label <- labelled::var_label(ds[[i]])
+#     if(!is.null(i_label)){
+#       labelled::var_label(ds1[[i]]) <- i_label
+#     }
+#   # }
+# }
+# dsn
+# ds1 %>% glimpse()
+
+# keep only complete cases
+ds1 <- ds1[complete.cases(ds1),]
+
+# ----- useful-sample ---------------
+ds <- ds %>%
+  dplyr::filter(id %in% (ds1 %>% dplyr::pull(id))  )
 
 # ---- basic-table --------------------------------------------------------------
 
