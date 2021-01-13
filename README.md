@@ -11,8 +11,9 @@ Developing a mobile survey for tracking Substance Use Disorder among college stu
 
 ## Results
 
--[Scale Rationale and Project Background][link7]
--[Factor Analysis and Scale Development Results][link8]
+-[Factor Analysis and Scale Development Results][link8]  
+-[Scale Rationale and Project Background][link7]  
+
 
 ![correlations][link4]
 ![dimensions][link5]
