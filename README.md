@@ -18,9 +18,9 @@ Developing a mobile survey for tracking Substance Use Disorder among college stu
 ![dimensions][link5]
 ![items][link6]
 
-[link4]:libs/materials/2020-02-19-substance-use-mobile-survey/correlations.PNG
-[link5]:libs/materials/2020-02-19-substance-use-mobile-survey/dimensions.PNG
-[link6]:libs/materials/2020-02-19-substance-use-mobile-survey/choose-items.PNG
+[link4]:libs/materials/2020-02-19-substance-use-mobile-survey/correlations.png
+[link5]:libs/materials/2020-02-19-substance-use-mobile-survey/dimensions.png
+[link6]:libs/materials/2020-02-19-substance-use-mobile-survey/choose-items.png
 
 [link1]:https://raw.githack.com/dss-hmi/pdtsun-2019-survey/master/analysis/1-first-look/demographics-substance-useful.html
 [link2]:https://raw.githack.com/dss-hmi/pdtsun-2019-survey/master/analysis/1-first-look/scale-analyis.html
