@@ -8,13 +8,13 @@ General -> Q4_7_pain, Theta7, 0.3501
 General -> Q4_8_confident, Theta8, 0.7827
 General -> Q4_9_worried, Theta9, 0.4509
 General -> Q4_10_purpose, Theta10, 0.7712
-General -> Q4_11_sad, Theta11, 0.6892
+General -> Q4_11_sad, Theta11, 0.6893
 General -> Q4_12_useful, Theta12, 0.7209
 General -> Q4_13_energetic, Theta13, 0.6642
 General -> Q4_14_supported, Theta14, 0.6896
 General -> Q4_15_angry, Theta15, 0.5051
 General -> Q4_16_control, Theta16, 0.7647
-General -> Q6_1_slept, Theta17, 0.443
+General -> Q6_1_slept, Theta17, 0.4429
 General -> Q6_2_ate, Theta18, 0.3943
 General -> Q6_3_selfcare, Theta19, 0.5767
 General -> Q6_4_helpful, Theta20, 0.387
